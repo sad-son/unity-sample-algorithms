@@ -131,7 +131,7 @@ namespace Sort
             }
         }
         
-        public static async UniTaskVoid BubbleSortAsync(this int[] array, float delay)
+        public static async UniTaskVoid BubbleSortAsync<T>(this T[] array, float delay) where T : IComparable<T>
         {
             var length = array.Length;
 
@@ -139,7 +139,7 @@ namespace Sort
             {
                 for (int j = 0; j < length - i - 1; j++)
                 {
-                    if (array[j] > array[j + 1])
+                    if (array[j].CompareTo(array[j + 1]) > 0)
                     {
                         (array[j], array[j + 1]) = (array[j + 1], array[j]);
                         await UniTask.Delay(TimeSpan.FromSeconds(delay));

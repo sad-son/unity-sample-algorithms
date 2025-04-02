@@ -11,6 +11,8 @@ public class BubbleSort : MonoBehaviour
     [SerializeField] private float _sortingDelay = 1;
     [SerializeField] private float _spacing = 1;
     [SerializeField] private int[] _numbers;
+    [SerializeField] private string[] _strings;
+    [SerializeField] private BubbleSort[] _refs;
 
     private GUIStyle _labelStyle;
     
@@ -18,6 +20,7 @@ public class BubbleSort : MonoBehaviour
     public void Sort()
     {
         _numbers.BubbleSortAsync(_sortingDelay).Forget();
+        _strings.BubbleSortAsync(_sortingDelay).Forget();
     }
 
     [Button]
