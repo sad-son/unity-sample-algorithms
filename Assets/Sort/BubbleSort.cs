@@ -1,9 +1,7 @@
-using System;
 using Sort;
 using TriInspector;
 using UnityEditor;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 public class BubbleSort : MonoBehaviour
 {
@@ -25,7 +23,7 @@ public class BubbleSort : MonoBehaviour
     [Button]
     public void Fill(int size)
     {
-        _numbers.Refill(size);
+        ArrayExtensions.Refill(ref _numbers, size);
     }
     
     private void OnDrawGizmos()
