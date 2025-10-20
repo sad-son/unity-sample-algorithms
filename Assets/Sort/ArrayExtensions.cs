@@ -5,6 +5,24 @@ namespace Sort
 {
     public static class ArrayExtensions
     {
+        //5
+        // 2 3 3 5
+        public static int BinarySearch(this int[] array, int target)
+        {
+            var left = 0;
+            var right = array.Length - 1;
+
+            while (left <= right)
+            {
+                var mid = (left + right) / 2;
+                var element = array[mid];
+                if (element == target) return mid;
+                if (element < target) left = mid + 1;
+                else right = mid - 1;
+            }
+            return -1;
+        }
+        
         public static void Refill(this int[] array)
         {
             var arrayLength = array.Length;
